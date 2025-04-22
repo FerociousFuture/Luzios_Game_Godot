@@ -51,14 +51,5 @@ Al finalizar el taller tendrás un videojuego 2D funcional de plataformas, hecho
 
 ---
 
-## 💬 Contacto
-
-Si tienes dudas o quieres compartir tu avance, puedes escribirnos:
-
-- **Martha Denisse Lara Xocuis**
-- **Haziel Lopez Castillo**
-
----
-
 ¡Gracias por participar y bienvenido al mundo del desarrollo de videojuegos! 🚀
 
