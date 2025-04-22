@@ -1,0 +1,308 @@
+[gd_scene load_steps=42 format=3 uid="uid://bacpm8lyarxqc"]
+
+[ext_resource type="Script" path="res://Scripts/luzio.gd" id="1_803v8"]
+[ext_resource type="Texture2D" uid="uid://doit11i17l7mi" path="res://Sprites/LuzioUV-Sheet.png" id="1_jn16t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbady"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3xxy"]
+size = Vector2(27.5, 37.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7y0s"]
+radius = 6.66667
+height = 41.6667
+
+[sub_resource type="Animation" id="Animation_f4t43"]
+resource_name = "Atacar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(12, 0), Vector2i(13, 0), Vector2i(14, 0), Vector2i(15, 0), Vector2i(16, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Golpe:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_0xoha"]
+resource_name = "Caer"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(11, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_21lyc"]
+resource_name = "Caminar"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q5s7b"]
+resource_name = "Hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(17, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oe5k0"]
+resource_name = "Idle"
+length = 0.85
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nls0m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Golpe:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_o1vn8"]
+resource_name = "Saltar"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(10, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i57ju"]
+_data = {
+"Atacar": SubResource("Animation_f4t43"),
+"Caer": SubResource("Animation_0xoha"),
+"Caminar": SubResource("Animation_21lyc"),
+"Hurt": SubResource("Animation_q5s7b"),
+"Idle": SubResource("Animation_oe5k0"),
+"RESET": SubResource("Animation_nls0m"),
+"Saltar": SubResource("Animation_o1vn8")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_to2cj"]
+animation = &"Atacar"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_1xiqg"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_to2cj")
+nodes/Animation/position = Vector2(100, 120)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iq0oi"]
+animation = &"Caer"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0yvst"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_iq0oi")
+nodes/Animation/position = Vector2(80, 120)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4tup4"]
+animation = &"Caminar"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_nmeu6"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_4tup4")
+nodes/Animation/position = Vector2(120, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lno43"]
+animation = &"Hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e5442"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_84jva"]
+graph_offset = Vector2(-132.558, 7.95103)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_e5442")
+nodes/Animation/position = Vector2(20, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uk8vj"]
+animation = &"Saltar"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_igago"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_uk8vj")
+nodes/Animation/position = Vector2(120, 120)
+nodes/output/position = Vector2(360, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dmn2c"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wymu5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kefuc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_recsf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4g1uy"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebava"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_13ab3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qqvk6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tcvc4"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vqm6w"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_38rw0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gdp7s"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bsad"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t753"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10r7v"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1h3dl"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nsmtn"]
+states/Atacar/node = SubResource("AnimationNodeBlendTree_1xiqg")
+states/Atacar/position = Vector2(864, 303)
+states/Caer/node = SubResource("AnimationNodeBlendTree_0yvst")
+states/Caer/position = Vector2(554, 31)
+states/Caminar/node = SubResource("AnimationNodeBlendTree_nmeu6")
+states/Caminar/position = Vector2(554, 303)
+states/End/position = Vector2(1009, 163)
+states/Hurt/node = SubResource("AnimationNodeAnimation_lno43")
+states/Hurt/position = Vector2(323, 120.192)
+states/Idle/node = SubResource("AnimationNodeBlendTree_84jva")
+states/Idle/position = Vector2(221, 303)
+states/Salto/node = SubResource("AnimationNodeBlendTree_igago")
+states/Salto/position = Vector2(221, 31)
+states/Start/position = Vector2(42, 303)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_dmn2c"), "Idle", "Salto", SubResource("AnimationNodeStateMachineTransition_wymu5"), "Idle", "Caminar", SubResource("AnimationNodeStateMachineTransition_kefuc"), "Caminar", "Idle", SubResource("AnimationNodeStateMachineTransition_recsf"), "Caer", "Idle", SubResource("AnimationNodeStateMachineTransition_4g1uy"), "Caminar", "Atacar", SubResource("AnimationNodeStateMachineTransition_ebava"), "Salto", "Caer", SubResource("AnimationNodeStateMachineTransition_13ab3"), "Caer", "Caminar", SubResource("AnimationNodeStateMachineTransition_qqvk6"), "Atacar", "Caminar", SubResource("AnimationNodeStateMachineTransition_tcvc4"), "Caer", "Hurt", SubResource("AnimationNodeStateMachineTransition_vqm6w"), "Atacar", "Hurt", SubResource("AnimationNodeStateMachineTransition_38rw0"), "Caminar", "Hurt", SubResource("AnimationNodeStateMachineTransition_gdp7s"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_0bsad"), "Salto", "Hurt", SubResource("AnimationNodeStateMachineTransition_8t753"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_10r7v"), "Hurt", "Caminar", SubResource("AnimationNodeStateMachineTransition_1h3dl")]
+graph_offset = Vector2(-205, -11.8083)
+
+[node name="Luzio" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_803v8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CapsuleShape2D_jbady")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_jn16t")
+hframes = 18
+frame = 8
+
+[node name="Area2D" type="Area2D" parent="." groups=["P_Punch"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Golpe" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(26.25, -2.08333)
+shape = SubResource("RectangleShape2D_a3xxy")
+disabled = true
+debug_color = Color(0.968238, 0.00359638, 7.70092e-07, 0.42)
+
+[node name="Cuerpo" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 9
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Cuerpo"]
+shape = SubResource("CapsuleShape2D_w7y0s")
+debug_color = Color(0.944697, 0.236443, 0, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i57ju")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_nsmtn")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Stun" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Cuerpo" to="." method="_on_cuerpo_area_entered"]
+[connection signal="timeout" from="Stun" to="." method="_on_stun_timeout"]
