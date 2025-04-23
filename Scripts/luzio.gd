@@ -15,6 +15,7 @@ var vida = 100
 var atacando := false
 var herido := false
 var ataque_timer := 0.0
+var monedas = 0
 
 func _ready() -> void:
 	anim_tree.active = true
@@ -86,11 +87,8 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 		var nodo = area.get_parent()
 		if nodo and nodo.has_signal("recoger"):
 			nodo.emit_signal("recoger")
-
-
-			
-
-
+			monedas += 1
+			print(monedas)
 
 func morir() -> void:
 	state_machine.travel("Hurt")
