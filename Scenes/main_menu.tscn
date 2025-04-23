@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6rc460kltgnu"]
+[gd_scene load_steps=14 format=3 uid="uid://b6rc460kltgnu"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ygf7c"]
 [ext_resource type="Texture2D" uid="uid://lp3i7g8cy75x" path="res://Sprites/Pixel-Art Background 2/frame0000.png" id="2_o6j2h"]
 [ext_resource type="FontFile" uid="uid://br3n3fkta7iu7" path="res://Sprites/FUENTE - Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_hfj7o"]
+[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="4_0f1oe"]
 [ext_resource type="Texture2D" uid="uid://bgpi2nrtgo47w" path="res://Sprites/BirdSpriteBig.png" id="4_08h36"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2wuyf"]
@@ -32,13 +33,30 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="Animation" id="Animation_k0y0v"]
-resource_name = "idle"
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmffa"]
+atlas = ExtResource("4_08h36")
+region = Rect2(0, 0, 160, 160)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4q5sc"]
-_data = {
-"idle": SubResource("Animation_k0y0v")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvods"]
+atlas = ExtResource("4_08h36")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5rpqx"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmffa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvods")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsvr6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -135,16 +153,17 @@ theme_override_fonts/font = ExtResource("3_hfj7o")
 theme_override_font_sizes/font_size = 170
 text = "Luzio's Game"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(1048, 552)
-texture = ExtResource("4_08h36")
-hframes = 8
-vframes = 3
+script = ExtResource("4_0f1oe")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_4q5sc")
-}
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_5rpqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_jsvr6")
 
 [connection signal="pressed" from="VBoxContainer/Inicio" to="." method="_on_inicio_pressed"]
 [connection signal="pressed" from="VBoxContainer/About" to="." method="_on_about_pressed"]
