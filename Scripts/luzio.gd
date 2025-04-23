@@ -12,6 +12,7 @@ const JUMP_VELOCITY = -450.0
 @onready var salto: AudioStreamPlayer2D = $Salto
 @onready var pegar: AudioStreamPlayer2D = $pegar
 @onready var dead: AudioStreamPlayer2D = $dead
+@onready var Sound = $sound
 
 var state_machine
 var vida = 100
@@ -91,6 +92,7 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Moneda"):
 		var nodo = area.get_parent()
 		if nodo and nodo.has_signal("recoger"):
+			Sound.play(0.0)
 			nodo.emit_signal("recoger")
 
 func morir() -> void:
