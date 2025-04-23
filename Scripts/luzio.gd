@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -450.0
 
 @onready var anim_tree: AnimationTree = $AnimationTree
@@ -71,7 +71,8 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 		velocity.x = 5000 if sprite.flip_h else -5000
 		velocity.y = -500.0
 		velocity.y = lerp(velocity.y, 0.0, 0.1)
-	if area.is_in_group("Death_box"):
+	
+	elif area.is_in_group("Death_box"):
 		herido = true
 		stun.start()
 		state_machine.travel("Hurt")
@@ -79,8 +80,15 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 		velocity.y = -600.0
 		velocity.y = lerp(velocity.y, 0.0, 0.1)
 		morir()
-
 		move_and_slide()
+	
+	if area.is_in_group("Moneda"):
+		var nodo = area.get_parent()
+		if nodo and nodo.has_signal("recoger"):
+			nodo.emit_signal("recoger")
+
+
+			
 
 
 

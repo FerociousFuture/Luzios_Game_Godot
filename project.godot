@@ -26,6 +26,7 @@ Player_punch="Golpe del jugador"
 Enemigo=""
 Player=""
 Death_box=""
+Moneda=""
 
 [input]
 
@@ -40,3 +41,4 @@ Atacar={
 2d_physics/layer_1="Piso"
 2d_physics/layer_3="At_P"
 2d_physics/layer_4="Enemigo"
+2d_physics/layer_5="Objetos"
