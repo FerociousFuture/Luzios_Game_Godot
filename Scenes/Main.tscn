@@ -156,7 +156,7 @@ zoom = Vector2(2.5, 2.5)
 position = Vector2(523, 354)
 
 [node name="Node2D2" parent="." instance=ExtResource("3_3mu2p")]
-position = Vector2(1185, 160)
+position = Vector2(1228, 157)
 
 [node name="DeathBox" type="Area2D" parent="." groups=["Death_box"]]
 
@@ -168,6 +168,18 @@ shape = SubResource("WorldBoundaryShape2D_vmgy6")
 position = Vector2(196, 379)
 
 [node name="Moneda" parent="." instance=ExtResource("8_m1e46")]
-position = Vector2(272, 378)
+position = Vector2(268, 363)
+
+[node name="Moneda2" parent="." instance=ExtResource("8_m1e46")]
+position = Vector2(449, 360)
+
+[node name="Moneda3" parent="." instance=ExtResource("8_m1e46")]
+position = Vector2(687, 340)
+
+[node name="Moneda4" parent="." instance=ExtResource("8_m1e46")]
+position = Vector2(898, 300)
+
+[node name="Moneda5" parent="." instance=ExtResource("8_m1e46")]
+position = Vector2(1059, 240)
 
 [connection signal="body_entered" from="DeathBox" to="." method="_on_death_box_body_entered"]
