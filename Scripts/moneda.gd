@@ -1,6 +1,9 @@
 extends Node2D
-@onready var Sound = $sound
+
 signal recoger
+
+@onready var Sound = $sound
+
 
 func _ready():
 	connect("recoger", self._recoger_moneda)
