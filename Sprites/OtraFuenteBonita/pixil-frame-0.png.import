@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://bpr43fvqx3a4k"
-=======
-uid="uid://ftssit7x10a0"
->>>>>>> 76f74e0bcaf4ed79d32000138e92a641457b86d8
-path="res://.godot/imported/LuzioMoneda.png-9d6da5a8b19faed0866385dc168c0ab0.ctex"
+uid="uid://cj47reoiim77e"
+path="res://.godot/imported/pixil-frame-0.png-81497970a01fd8586a402a9318837f43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/LuzioMoneda.png"
-dest_files=["res://.godot/imported/LuzioMoneda.png-9d6da5a8b19faed0866385dc168c0ab0.ctex"]
+source_file="res://Sprites/OtraFuenteBonita/pixil-frame-0.png"
+dest_files=["res://.godot/imported/pixil-frame-0.png-81497970a01fd8586a402a9318837f43.ctex"]
 
 [params]
 
