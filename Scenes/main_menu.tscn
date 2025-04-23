@@ -1,14 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6rc460kltgnu"]
+[gd_scene load_steps=22 format=3 uid="uid://b6rc460kltgnu"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ygf7c"]
-[ext_resource type="Texture2D" uid="uid://lp3i7g8cy75x" path="res://Sprites/Pixel-Art Background 2/frame0000.png" id="2_o6j2h"]
-[ext_resource type="FontFile" uid="uid://br3n3fkta7iu7" path="res://Sprites/FUENTE - Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_hfj7o"]
+[ext_resource type="Texture2D" uid="uid://ceg0w1lv72rjb" path="res://Assets/1.png" id="2_uke8l"]
+[ext_resource type="Texture2D" uid="uid://i0m7uhmq1mo" path="res://Assets/2.png" id="3_4ivgi"]
+[ext_resource type="FontFile" uid="uid://br3n3fkta7iu7" path="res://Assets/FUENTE - Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_hfj7o"]
 [ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="4_0f1oe"]
 [ext_resource type="Texture2D" uid="uid://bgpi2nrtgo47w" path="res://Sprites/BirdSpriteBig.png" id="4_08h36"]
+[ext_resource type="Texture2D" uid="uid://5bf6r33gbftr" path="res://Assets/3.png" id="4_owfur"]
+[ext_resource type="Texture2D" uid="uid://35774ppves2i" path="res://Assets/4.png" id="5_32bsy"]
+[ext_resource type="AudioStream" uid="uid://bd41lreh28ut5" path="res://Musica/InicioMenuPrincipal.mp3" id="6_ju8q4"]
+[ext_resource type="FontFile" uid="uid://bwxygnj4ska3o" path="res://Assets/OtraFuenteBonita/Born2bSportyV10.ttf" id="7_npv8g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2wuyf"]
-texture = ExtResource("2_o6j2h")
+texture = ExtResource("2_uke8l")
 modulate_color = Color(0.601223, 0.601223, 0.601223, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ejhk3"]
+texture = ExtResource("3_4ivgi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_54bya"]
+texture = ExtResource("4_owfur")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6til"]
+texture = ExtResource("5_32bsy")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxncy"]
 bg_color = Color(0.26687, 0.496917, 1, 1)
@@ -27,7 +41,12 @@ corner_radius_bottom_left = 16
 shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apqky"]
-bg_color = Color(0.0823529, 0.160784, 0.247059, 1)
+bg_color = Color(0.258824, 0.364706, 0.521569, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.105013, 0.175368, 0.285961, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -76,6 +95,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2wuyf")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ejhk3")
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_54bya")
+
+[node name="Panel4" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_k6til")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(30, 100)
@@ -137,21 +174,23 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_apqky")
 theme_override_styles/normal = SubResource("StyleBoxFlat_apqky")
 text = "Salir"
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 1124.0
-offset_bottom = 245.0
-theme_override_colors/font_color = Color(0.752366, 0.835273, 1, 1)
+offset_top = 16.0
+offset_right = 1152.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 11
-theme_override_constants/shadow_offset_y = 6
-theme_override_constants/outline_size = 21
-theme_override_fonts/font = ExtResource("3_hfj7o")
+theme_override_colors/font_outline_color = Color(0.202961, 0.315932, 0.487479, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 30
+theme_override_constants/shadow_outline_size = 26
+theme_override_fonts/font = ExtResource("7_npv8g")
 theme_override_font_sizes/font_size = 170
 text = "Luzio's Game"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(1048, 552)
@@ -164,6 +203,11 @@ sprite_frames = SubResource("SpriteFrames_5rpqx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_jsvr6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ju8q4")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/Inicio" to="." method="_on_inicio_pressed"]
 [connection signal="pressed" from="VBoxContainer/About" to="." method="_on_about_pressed"]
