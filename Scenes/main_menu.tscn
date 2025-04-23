@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://ceg0w1lv72rjb" path="res://Assets/1.png" id="2_uke8l"]
 [ext_resource type="Texture2D" uid="uid://i0m7uhmq1mo" path="res://Assets/2.png" id="3_4ivgi"]
 [ext_resource type="FontFile" uid="uid://br3n3fkta7iu7" path="res://Assets/FUENTE - Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_hfj7o"]
-[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="4_0f1oe"]
 [ext_resource type="Texture2D" uid="uid://bgpi2nrtgo47w" path="res://Sprites/BirdSpriteBig.png" id="4_08h36"]
 [ext_resource type="Texture2D" uid="uid://5bf6r33gbftr" path="res://Assets/3.png" id="4_owfur"]
 [ext_resource type="Texture2D" uid="uid://35774ppves2i" path="res://Assets/4.png" id="5_32bsy"]
 [ext_resource type="AudioStream" uid="uid://bd41lreh28ut5" path="res://Musica/InicioMenuPrincipal.mp3" id="6_ju8q4"]
 [ext_resource type="FontFile" uid="uid://bwxygnj4ska3o" path="res://Assets/OtraFuenteBonita/Born2bSportyV10.ttf" id="7_npv8g"]
+[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="8_bs6j0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2wuyf"]
 texture = ExtResource("2_uke8l")
@@ -194,7 +194,7 @@ vertical_alignment = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(1048, 552)
-script = ExtResource("4_0f1oe")
+script = ExtResource("8_bs6j0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
