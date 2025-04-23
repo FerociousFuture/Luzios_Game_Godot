@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://br8hr53qfidje"]
+[gd_scene load_steps=14 format=4 uid="uid://br8hr53qfidje"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7kgso"]
 [ext_resource type="PackedScene" uid="uid://bacpm8lyarxqc" path="res://Characters/luzio.tscn" id="2_e6mbi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cef1oshfkf6sq" path="res://Assets/Arbol.png" id="4_6m7sm"]
 [ext_resource type="Texture2D" uid="uid://br80rces4fk40" path="res://Assets/Fondo.png" id="4_x0nns"]
 [ext_resource type="Texture2D" uid="uid://dvxkrjblpvd48" path="res://Assets/Arbusto.png" id="5_od0st"]
+[ext_resource type="PackedScene" uid="uid://wxfoun3xw5l0" path="res://Characters/Moneda.tscn" id="8_fh6qm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87s7c"]
 texture = ExtResource("2_mjfri")
@@ -150,6 +151,9 @@ position = Vector2(196, 379)
 
 [node name="Camera2D" type="Camera2D" parent="Luzio"]
 zoom = Vector2(2.5, 2.5)
+
+[node name="Moneda" parent="." instance=ExtResource("8_fh6qm")]
+position = Vector2(267, 386)
 
 [node name="Node2D" parent="." instance=ExtResource("3_3mu2p")]
 position = Vector2(523, 354)
