@@ -318,6 +318,7 @@ stream = ExtResource("5_no6bi")
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_6trqh")
+volume_db = 24.0
 
 [connection signal="area_entered" from="Cuerpo" to="." method="_on_cuerpo_area_entered"]
 [connection signal="timeout" from="Stun" to="." method="_on_stun_timeout"]

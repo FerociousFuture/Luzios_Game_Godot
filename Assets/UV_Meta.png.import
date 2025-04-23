@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d13nbudad3h16"
-path="res://.godot/imported/luzio.jpeg-2b99460945c0f9cd14561e3f9ca9104d.ctex"
+uid="uid://dpinxkuhwri3a"
+path="res://.godot/imported/UV_Meta.png-4bc11abb98ca05aab30d5ceddd726529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/luzio.jpeg"
-dest_files=["res://.godot/imported/luzio.jpeg-2b99460945c0f9cd14561e3f9ca9104d.ctex"]
+source_file="res://Assets/UV_Meta.png"
+dest_files=["res://.godot/imported/UV_Meta.png-4bc11abb98ca05aab30d5ceddd726529.ctex"]
 
 [params]
 
