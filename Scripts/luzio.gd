@@ -9,6 +9,9 @@ const JUMP_VELOCITY = -450.0
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var cuerpo: Area2D = $Cuerpo
 @onready var stun: Timer = $Stun
+@onready var salto: AudioStreamPlayer2D = $Salto
+@onready var pegar: AudioStreamPlayer2D = $pegar
+@onready var dead: AudioStreamPlayer2D = $dead
 
 var state_machine
 var vida = 100
@@ -28,9 +31,11 @@ func _physics_process(delta: float) -> void:
 	if not atacando and is_on_floor():
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY
+			salto.play()
 		if Input.is_action_just_pressed("Atacar"):
 			atacando = true
 			ataque_timer = 0.5
+			pegar.play()
 
 	if not atacando and not herido:
 		var dir := Input.get_axis("ui_left", "ui_right")
@@ -92,6 +97,7 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 
 func morir() -> void:
 	state_machine.travel("Hurt")
+	dead.play()
 	await stun.timeout
 	queue_free()
 	

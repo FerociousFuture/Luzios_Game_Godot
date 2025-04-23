@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnvikvfn25pdv"]
+[gd_scene load_steps=10 format=3 uid="uid://bnvikvfn25pdv"]
 
 [ext_resource type="Texture2D" uid="uid://c530c6ifcp5fv" path="res://icon.svg" id="1_4f3r2"]
 [ext_resource type="Script" path="res://Scripts/enemigo.gd" id="1_p2xyv"]
+[ext_resource type="AudioStream" uid="uid://es3th147d7lb" path="res://Musica/Hurt.wav" id="3_5fbsn"]
+[ext_resource type="AudioStream" uid="uid://bqm3cipy70vus" path="res://Musica/Explosion.wav" id="4_5kqop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivci8"]
 size = Vector2(66, 64)
@@ -138,5 +140,11 @@ texture = ExtResource("1_4f3r2")
 libraries = {
 "": SubResource("AnimationLibrary_xm7qm")
 }
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5fbsn")
+
+[node name="dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5kqop")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
