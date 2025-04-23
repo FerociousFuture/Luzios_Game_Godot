@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://br8hr53qfidje"]
+[gd_scene load_steps=16 format=4 uid="uid://br8hr53qfidje"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7kgso"]
 [ext_resource type="PackedScene" uid="uid://bacpm8lyarxqc" path="res://Characters/luzio.tscn" id="2_e6mbi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cef1oshfkf6sq" path="res://Assets/Arbol.png" id="4_6m7sm"]
 [ext_resource type="Texture2D" uid="uid://br80rces4fk40" path="res://Assets/Fondo.png" id="4_x0nns"]
 [ext_resource type="Texture2D" uid="uid://dvxkrjblpvd48" path="res://Assets/Arbusto.png" id="5_od0st"]
+[ext_resource type="FontFile" uid="uid://bwxygnj4ska3o" path="res://Sprites/OtraFuenteBonita/Born2bSportyV10.ttf" id="8_e3xbt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgojc"]
 texture = ExtResource("4_x0nns")
@@ -336,5 +337,17 @@ shape = SubResource("WorldBoundaryShape2D_vmgy6")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(196, 379)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 5
+offset_left = 146.0
+offset_top = 285.0
+offset_right = 313.0
+offset_bottom = 339.0
+theme_override_fonts/font = ExtResource("8_e3xbt")
+theme_override_font_sizes/font_size = 16
+text = "- FLECHAS para moverte
+- ESPACIO para saltar
+- X para atacar"
 
 [connection signal="body_entered" from="DeathBox" to="." method="_on_death_box_body_entered"]
