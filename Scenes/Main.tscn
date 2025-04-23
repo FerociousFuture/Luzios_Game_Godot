@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=4 uid="uid://ccprhrotfmwdo"]
+[gd_scene load_steps=15 format=4 uid="uid://ccprhrotfmwdo"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_7kgso"]
 [ext_resource type="PackedScene" uid="uid://bacpm8lyarxqc" path="res://Characters/luzio.tscn" id="2_e6mbi"]
 [ext_resource type="Texture2D" uid="uid://cs4r7luqsgf28" path="res://Sprites/SueloV2.png" id="2_mjfri"]
 [ext_resource type="PackedScene" uid="uid://bnvikvfn25pdv" path="res://Characters/Enemigo.tscn" id="3_3mu2p"]
@@ -296,7 +295,6 @@ sources/3 = SubResource("TileSetAtlasSource_d1wx5")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmgy6"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_7kgso")
 
 [node name="Fondo2" type="TileMapLayer" parent="."]
 texture_filter = 1
