@@ -258,7 +258,7 @@ states/Salto/node = SubResource("AnimationNodeBlendTree_igago")
 states/Salto/position = Vector2(221, 31)
 states/Start/position = Vector2(42, 303)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_dmn2c"), "Idle", "Salto", SubResource("AnimationNodeStateMachineTransition_wymu5"), "Idle", "Caminar", SubResource("AnimationNodeStateMachineTransition_kefuc"), "Caminar", "Idle", SubResource("AnimationNodeStateMachineTransition_recsf"), "Caer", "Idle", SubResource("AnimationNodeStateMachineTransition_4g1uy"), "Caminar", "Atacar", SubResource("AnimationNodeStateMachineTransition_ebava"), "Salto", "Caer", SubResource("AnimationNodeStateMachineTransition_13ab3"), "Caer", "Caminar", SubResource("AnimationNodeStateMachineTransition_qqvk6"), "Atacar", "Caminar", SubResource("AnimationNodeStateMachineTransition_tcvc4"), "Caer", "Hurt", SubResource("AnimationNodeStateMachineTransition_vqm6w"), "Atacar", "Hurt", SubResource("AnimationNodeStateMachineTransition_38rw0"), "Caminar", "Hurt", SubResource("AnimationNodeStateMachineTransition_gdp7s"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_0bsad"), "Salto", "Hurt", SubResource("AnimationNodeStateMachineTransition_8t753"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_10r7v"), "Hurt", "Caminar", SubResource("AnimationNodeStateMachineTransition_1h3dl")]
-graph_offset = Vector2(-205, -11.8083)
+graph_offset = Vector2(3, -6.8083)
 
 [node name="Luzio" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(1.2, 1.2)
