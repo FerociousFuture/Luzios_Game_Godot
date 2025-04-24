@@ -266,6 +266,7 @@ graph_offset = Vector2(3, -6.8083)
 
 [node name="Luzio" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(1.2, 1.2)
+collision_layer = 2
 script = ExtResource("1_803v8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

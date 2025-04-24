@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bacpm8lyarxqc" path="res://Characters/luzio.tscn" id="2_e6mbi"]
 [ext_resource type="Texture2D" uid="uid://cs4r7luqsgf28" path="res://Sprites/SueloV2.png" id="2_mjfri"]
-[ext_resource type="PackedScene" uid="uid://bnvikvfn25pdv" path="res://Characters/Enemigo.tscn" id="3_3mu2p"]
 [ext_resource type="Texture2D" uid="uid://cef1oshfkf6sq" path="res://Assets/Arbol.png" id="4_6m7sm"]
 [ext_resource type="Texture2D" uid="uid://br80rces4fk40" path="res://Assets/Fondo.png" id="4_x0nns"]
 [ext_resource type="Texture2D" uid="uid://dvxkrjblpvd48" path="res://Assets/Arbusto.png" id="5_od0st"]
+[ext_resource type="PackedScene" uid="uid://7qje1va5fhry" path="res://Characters/robot.tscn" id="6_mtx0b"]
 [ext_resource type="PackedScene" uid="uid://wxfoun3xw5l0" path="res://Characters/Moneda.tscn" id="8_m1e46"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ph3hq"]
@@ -318,17 +318,14 @@ position = Vector2(196, 379)
 [node name="Camera2D" type="Camera2D" parent="Luzio"]
 zoom = Vector2(2.5, 2.5)
 
-[node name="Node2D" parent="." instance=ExtResource("3_3mu2p")]
-position = Vector2(523, 354)
-
-[node name="Node2D2" parent="." instance=ExtResource("3_3mu2p")]
-position = Vector2(1228, 157)
-
 [node name="DeathBox" type="Area2D" parent="." groups=["Death_box"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox"]
 position = Vector2(336, 553)
 shape = SubResource("WorldBoundaryShape2D_vmgy6")
+
+[node name="Enemigo" parent="." instance=ExtResource("6_mtx0b")]
+position = Vector2(622, 372)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(196, 379)

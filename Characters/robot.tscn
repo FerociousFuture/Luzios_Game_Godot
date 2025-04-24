@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://7qje1va5fhry"]
+
+[ext_resource type="Script" path="res://Scripts/enemigo.gd" id="1_vge16"]
+[ext_resource type="Texture2D" uid="uid://cebiif82e8lcp" path="res://Sprites/UVBot-Sheet.png" id="2_qk7yw"]
+
+[sub_resource type="Animation" id="Animation_slxdg"]
+resource_name = "Caminar"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_yy3jx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmapw"]
+_data = {
+"Caminar": SubResource("Animation_slxdg"),
+"RESET": SubResource("Animation_yy3jx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfwky"]
+size = Vector2(22, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ii44"]
+size = Vector2(17, 17)
+
+[node name="Enemigo" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_vge16")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_qk7yw")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rmapw")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_rfwky")
+
+[node name="Suelo" type="RayCast2D" parent="."]
+target_position = Vector2(-23, 23)
+
+[node name="Pared" type="RayCast2D" parent="."]
+target_position = Vector2(-51, 0)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemigo"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_4ii44")
+debug_color = Color(0.888428, 0.327876, 0, 0.42)
