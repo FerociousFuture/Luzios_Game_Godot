@@ -45,7 +45,7 @@ _data = {
 size = Vector2(22, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ii44"]
-size = Vector2(17, 17)
+size = Vector2(36, 34)
 
 [node name="Enemigo" type="CharacterBody2D"]
 collision_layer = 8
@@ -73,8 +73,11 @@ target_position = Vector2(-23, 23)
 target_position = Vector2(-51, 0)
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemigo"]]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 1)
+position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_4ii44")
 debug_color = Color(0.888428, 0.327876, 0, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
