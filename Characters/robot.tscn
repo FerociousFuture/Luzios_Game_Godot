@@ -70,7 +70,7 @@ shape = SubResource("RectangleShape2D_rfwky")
 target_position = Vector2(-23, 23)
 
 [node name="Pared" type="RayCast2D" parent="."]
-target_position = Vector2(-51, 0)
+target_position = Vector2(-23, 0)
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemigo"]]
 collision_mask = 5
