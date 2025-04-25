@@ -13,9 +13,11 @@ const JUMP_VELOCITY = -450.0
 @onready var pegar: AudioStreamPlayer2D = $pegar
 @onready var dead: AudioStreamPlayer2D = $dead
 @onready var Sound = $sound
+@onready var damage: AudioStreamPlayer2D = $damage
+
 
 var state_machine
-var vida = 10
+var vida = 70
 var atacando := false
 var herido := false
 var ataque_timer := 0.0
@@ -81,6 +83,7 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("Death_box"):
 		herido = true
 		stun.start()
+		damage.play()
 		state_machine.travel("Hurt")
 		velocity.x = 5000 if sprite.flip_h else -5000
 		velocity.y = -600.0

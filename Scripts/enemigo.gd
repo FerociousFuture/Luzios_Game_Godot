@@ -4,6 +4,7 @@ extends Node2D
 @onready var animation : AnimationPlayer = $AnimationPlayer
 @onready var raycast_pared : RayCast2D = $Pared
 @onready var raycast_suelo : RayCast2D = $Suelo
+@onready var damage: AudioStreamPlayer2D = $damage
 
 var velocidad := 50
 var direccion := -1
@@ -27,6 +28,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 	if area.is_in_group("P_Punch"):
 		vida -= 1
+		damage.play()
 		print("Ahh me pegó!!! Vida restante:", vida)
 
 		if vida <= 0:

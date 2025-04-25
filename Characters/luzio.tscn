@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bacpm8lyarxqc"]
+[gd_scene load_steps=47 format=3 uid="uid://bacpm8lyarxqc"]
 
 [ext_resource type="Script" path="res://Scripts/luzio.gd" id="1_803v8"]
 [ext_resource type="Texture2D" uid="uid://doit11i17l7mi" path="res://Sprites/LuzioUV-Sheet.png" id="1_jn16t"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dylejjke87ac2" path="res://Musica/Crunch.wav" id="4_xt1uf"]
 [ext_resource type="AudioStream" uid="uid://cfxlrs53gb44g" path="res://Musica/Evil_Laugh.wav" id="5_no6bi"]
 [ext_resource type="AudioStream" uid="uid://c6f3hgxcakgsc" path="res://Musica/Click.wav" id="6_6trqh"]
+[ext_resource type="AudioStream" uid="uid://es3th147d7lb" path="res://Musica/Hurt.wav" id="7_1lvab"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbady"]
 
@@ -321,6 +322,10 @@ stream = ExtResource("5_no6bi")
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_6trqh")
 volume_db = 15.0
+
+[node name="damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_1lvab")
+volume_db = 13.063
 
 [connection signal="area_entered" from="Cuerpo" to="." method="_on_cuerpo_area_entered"]
 [connection signal="timeout" from="Stun" to="." method="_on_stun_timeout"]

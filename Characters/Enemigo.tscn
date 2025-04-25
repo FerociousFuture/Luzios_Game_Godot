@@ -147,4 +147,8 @@ stream = ExtResource("3_5fbsn")
 [node name="dead" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5kqop")
 
+[node name="damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5fbsn")
+volume_db = 12.56
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
