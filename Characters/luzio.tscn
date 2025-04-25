@@ -313,6 +313,7 @@ stream = ExtResource("3_144uv")
 
 [node name="pegar" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_xt1uf")
+volume_db = 10.0
 
 [node name="dead" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_no6bi")

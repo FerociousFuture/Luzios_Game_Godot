@@ -15,7 +15,7 @@ const JUMP_VELOCITY = -450.0
 @onready var Sound = $sound
 
 var state_machine
-var vida = 100
+var vida = 10
 var atacando := false
 var herido := false
 var ataque_timer := 0.0
@@ -47,9 +47,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 
-	if vida <= 0:
-		morir()
-
 	move_and_slide()
 	actualizar_animaciones()
 
@@ -78,6 +75,8 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 		velocity.x = 5000 if sprite.flip_h else -5000
 		velocity.y = -500.0
 		velocity.y = lerp(velocity.y, 0.0, 0.1)
+		if vida <= 0:
+			morir()
 	
 	elif area.is_in_group("Death_box"):
 		herido = true
@@ -96,6 +95,7 @@ func _on_cuerpo_area_entered(area: Area2D) -> void:
 			nodo.emit_signal("recoger")
 
 func morir() -> void:
+	print("me mori")
 	state_machine.travel("Hurt")
 	dead.play()
 	await stun.timeout
